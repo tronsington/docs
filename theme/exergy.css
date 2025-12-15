@@ -1,0 +1,282 @@
+/* Exergy Brand Colors
+ * Primary Navy:    #2f3b69
+ * Medium Blue:     #4970a5
+ * Light Blue-Gray: #9ea8be
+ * Slate Blue:      #718ebc
+ */
+
+/* ===== CUSTOM FONTS ===== */
+@font-face {
+    font-family: 'Futura';
+    src: url('/assets/fonts/futura-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('/assets/fonts/futura-book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('/assets/fonts/futura-book-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('/assets/fonts/futura-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font-family: 'Futura', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    font-family: var(--font-family);
+}
+
+body, .sidebar, .content, #searchbar {
+    font-family: var(--font-family);
+}
+
+/* ===== LIGHT THEME (Light/Rust) ===== */
+.light, .rust {
+    --bg: #ffffff;
+    --fg: #2f3b69;
+    --sidebar-bg: #f5f7fa;
+    --sidebar-fg: #2f3b69;
+    --sidebar-non-existant: #9ea8be;
+    --sidebar-active: #4970a5;
+    --sidebar-spacer: #e0e4eb;
+    --scrollbar: #9ea8be;
+    --icons: #4970a5;
+    --icons-hover: #2f3b69;
+    --links: #4970a5;
+    --inline-code-color: #2f3b69;
+    --code-bg: #f5f7fa;
+    --theme-popup-bg: #ffffff;
+    --theme-popup-border: #9ea8be;
+    --theme-hover: #f5f7fa;
+    --quote-bg: #f5f7fa;
+    --quote-border: #4970a5;
+    --table-border-color: #e0e4eb;
+    --table-header-bg: #f5f7fa;
+    --table-alternate-bg: #fafbfc;
+    --searchbar-border-color: #9ea8be;
+    --searchbar-bg: #ffffff;
+    --searchbar-fg: #2f3b69;
+    --searchbar-shadow-color: rgba(47, 59, 105, 0.1);
+    --searchresults-header-fg: #2f3b69;
+    --searchresults-border-color: #e0e4eb;
+    --searchresults-li-bg: #f5f7fa;
+    --search-mark-bg: #718ebc;
+}
+
+/* ===== DARK THEMES (Navy/Coal/Ayu) ===== */
+.navy, .coal, .ayu {
+    --bg: #1a1f35;
+    --fg: #e8eaf0;
+    --sidebar-bg: #141827;
+    --sidebar-fg: #e8eaf0;
+    --sidebar-non-existant: #6b7394;
+    --sidebar-active: #718ebc;
+    --sidebar-spacer: #2f3b69;
+    --scrollbar: #4970a5;
+    --icons: #718ebc;
+    --icons-hover: #9ea8be;
+    --links: #718ebc;
+    --inline-code-color: #9ea8be;
+    --code-bg: #141827;
+    --theme-popup-bg: #1a1f35;
+    --theme-popup-border: #2f3b69;
+    --theme-hover: #2f3b69;
+    --quote-bg: #141827;
+    --quote-border: #4970a5;
+    --table-border-color: #2f3b69;
+    --table-header-bg: #141827;
+    --table-alternate-bg: #1e2440;
+    --searchbar-border-color: #4970a5;
+    --searchbar-bg: #141827;
+    --searchbar-fg: #e8eaf0;
+    --searchbar-shadow-color: rgba(0, 0, 0, 0.3);
+    --searchresults-header-fg: #e8eaf0;
+    --searchresults-border-color: #2f3b69;
+    --searchresults-li-bg: #1e2440;
+    --search-mark-bg: #4970a5;
+}
+
+/* ===== LOGO IN SIDEBAR ===== */
+.sidebar .sidebar-scrollbox {
+    padding-top: 10px;
+}
+
+.sidebar .sidebar-scrollbox::before {
+    content: "";
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    margin: 10px 20px 20px 20px;
+}
+
+/* Light theme logo */
+.light .sidebar .sidebar-scrollbox::before,
+.rust .sidebar .sidebar-scrollbox::before {
+    background-image: url('/assets/logo-light.png');
+}
+
+/* Dark theme logo */
+.navy .sidebar .sidebar-scrollbox::before,
+.coal .sidebar .sidebar-scrollbox::before,
+.ayu .sidebar .sidebar-scrollbox::before {
+    background-image: url('/assets/logo-dark.png');
+}
+
+/* ===== GENERAL STYLING ===== */
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar styling */
+.sidebar .chapter li.chapter-item {
+    margin-top: 0.5em;
+}
+
+.sidebar .chapter li.chapter-item a {
+    padding: 5px 0;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.sidebar .chapter li.chapter-item.expanded > a {
+    font-weight: 600;
+}
+
+/* Active chapter highlight */
+.sidebar .chapter li.chapter-item a.active {
+    color: var(--sidebar-active);
+    font-weight: 600;
+}
+
+/* Code blocks */
+pre {
+    border-radius: 6px;
+    border: 1px solid var(--table-border-color);
+}
+
+code {
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+}
+
+/* Tables */
+table {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left-width: 4px;
+    border-radius: 0 6px 6px 0;
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--fg);
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+h1 {
+    border-bottom: 2px solid var(--sidebar-active);
+    padding-bottom: 0.3em;
+}
+
+/* Menu bar */
+.menu-bar {
+    border-bottom: 1px solid var(--table-border-color);
+}
+
+/* Search */
+#searchbar {
+    border-radius: 6px;
+}
+
+/* Buttons */
+.menu-bar i, .menu-bar .icon-button {
+    transition: color 0.2s ease;
+}
+
+/* Navigation buttons */
+.nav-chapters {
+    transition: color 0.2s ease;
+}
+
+.nav-chapters:hover {
+    color: var(--sidebar-active);
+}
+
+/* Page footer navigation */
+.previous, .next {
+    transition: color 0.2s ease;
+}
+
+.previous:hover, .next:hover {
+    color: var(--sidebar-active);
+}
+
+/* Admonitions / Callouts (if using mdbook-admonish) */
+.admonition {
+    border-radius: 6px;
+}
+
+/* Print styles */
+@media print {
+    .sidebar, .menu-bar, .nav-chapters {
+        display: none;
+    }
+}
+
+/* ===== THEME PICKER CUSTOMIZATION ===== */
+
+/* Hide unused theme options (rust, coal, ayu) - keep only Auto, Light, Dark */
+#theme-list li:has(button#rust),
+#theme-list li:has(button#coal),
+#theme-list li:has(button#ayu) {
+    display: none;
+}
+
+/* Fallback for browsers without :has() support */
+#theme-list button#rust,
+#theme-list button#coal,
+#theme-list button#ayu {
+    display: none;
+}

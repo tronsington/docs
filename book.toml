@@ -1,0 +1,27 @@
+[book]
+authors = ["Tyler Stevens"]
+language = "en"
+src = "src"
+title = "Exergy Documentation"
+description = "Documentation for Exergy heating system upgrades and bitcoin mining powered smart home solutions"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/exergy/documentation"
+edit-url-template = "https://github.com/exergy/documentation/edit/main/{path}"
+additional-css = ["theme/exergy.css"]
+additional-js = ["theme/auto-theme.js"]
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-hierarchical-heading = true
