@@ -6,7 +6,7 @@ Full control of Canaan Avalon miners through Home Assistant.
 
 - [Canaan Avalon Mini 3](./avalon-mini-3.md) - Compact home miner, ~37 TH/s
 - [Canaan Avalon Q](./avalon-q.md) - Higher performance, ~90 TH/s
-- [Canaan Avalon Nano 3s](./avalon-nano-3s.md) - Desktop miner, ~3 TH/s
+- [Canaan Avalon Nano 3s](./avalon-nano-3s.md) - Desktop miner, ~6 TH/s
 
 Click each model for detailed specifications, sensors, and controls.
 
