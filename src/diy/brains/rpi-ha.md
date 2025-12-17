@@ -32,6 +32,25 @@ Before diving into those tutorials, review this page to understand what you'll n
 |-----------|-------------|
 | **Zigbee Coordinator** | A USB or radio-to-pi_hat antenna that listens for Zigbee radio signals (not WiFi). Enables communication with Zigbee sensors and devices like temperature sensors. Recommended to minimize Wi-Fi connected devices in the home and increase stability. |
 
+## For Installing Home Assistant OS
+
+You'll need one of the following setups to flash Home Assistant OS onto your NVMe SSD. See [System Configuration](./rpi-ha-config.md) for details on each method.
+
+**Option A: Network Installer (Recommended)**
+
+| Component | Description |
+|-----------|-------------|
+| **HDMI Cable** | To connect Pi to a display. Some cases/expansion boards include full-size HDMI ports; otherwise you'll need a Micro-HDMI to HDMI cable or adapter. |
+| **Monitor or TV** | Any display with HDMI input to see the installer GUI. |
+| **USB Keyboard** | To navigate the Network Installer menus. |
+
+**Option B: Raspberry Pi Imager**
+
+| Component | Description |
+|-----------|-------------|
+| **NVMe-to-USB Adapter** | Allows you to connect your NVMe SSD to a computer for flashing before installing it in the Pi case. |
+| **Computer** | Mac, Windows, or Linux computer to run Raspberry Pi Imager. |
+
 ---
 
 ## Important: Don't Use MicroSD Cards
