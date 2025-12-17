@@ -1,4 +1,4 @@
-# Exergy Documentation
+# Exergy Documentation Website
 
 Documentation Website for Exergy Hashrate Heating Systems.
 
