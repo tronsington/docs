@@ -1,142 +1,95 @@
-<!--explain at a high level what home assistant automation blueprints are, why exergy made our own, and what they do-->
-# Exergy Home Assistant Automation Blueprints
+<!--explain what home assistant automations are, what blueprints are, and introduce Exergy blueprints for hashrate heating-->
+# Home Assistant Automations & Blueprints
 
-Pre-made Home Assistant automations you can import and customize for hashrate heating.
+Automations are the smart logic that makes your smart home actually smart. They connect your [integrations](../integrations/overview.md) together—triggering actions based on sensor readings, schedules, or device states. This is what transforms a bitcoin miner into a functional heater for your home.
+
+## What Are Automations?
+
+Integrations connect your devices to Home Assistant. Automations make them work together.
+
+Every automation follows the same pattern:
+
+- **Trigger** - What starts the automation (temperature drops, time of day, button press)
+- **Condition** - Optional checks before proceeding (only if home, only on weekdays)
+- **Action** - What happens (turn on miner, adjust power level, send notification)
+
+**Example:** When room temperature drops below 68°F (trigger), and it's between 6am-10pm (condition), turn on the miner in heating mode (action).
+
+This is the special sauce that lets a bitcoin miner replace your space heater, tie into your whole-home thermostat, or only run when electricity is cheap.
 
 ## What Are Blueprints?
 
-Blueprints are automation templates. Instead of building automations from scratch, you:
+Blueprints are reusable automation templates.
 
-1. Import the blueprint
-2. Fill in your specific entities
-3. Customize settings
+Instead of building automation logic from scratch, you:
+
+1. Import a pre-built blueprint
+2. Fill in your specific entities (your miner, your thermostat, your temperature sensor)
+3. Adjust settings to your preferences
 4. Activate
 
-## Available Blueprints
+**Blueprints vs Automations:** A blueprint is a template. An automation is a running instance. One blueprint can create many automations with different settings—like using the same recipe to cook for different numbers of guests.
 
-*Blueprint library expanding - check GitHub for latest*
+## Why Exergy Makes Blueprints
 
-### Time-of-Use Optimization
+We build blueprints for common hashrate heating scenarios so you don't have to figure out the automation logic yourself.
 
-Run miners during cheap electricity hours, reduce during peak rates.
+**Use cases we cover:**
 
-**Inputs:**
-- Miner entity
-- Peak start/end times
-- Off-peak behavior (full power, eco, off)
-- Peak behavior (eco, off)
+- **Space heater replacement** - Miner maintains room temperature using a temp sensor
+- **HVAC integration** - Miner responds to your whole-home thermostat
+- **Time-of-use optimization** - Mine during cheap electricity, reduce during peak rates
+- **Solar monetization** - Use excess solar production for mining instead of selling back cheap
+- **Scheduled operation** - Run on custom schedules with different modes
 
-### Weather-Based Heating
+These blueprints pair with Exergy hardware kits and installed systems, but work with any compatible setup.
 
-Adjust mining based on outdoor temperature.
+## Available Exergy Blueprints
 
-**Inputs:**
-- Miner entity
-- Weather/temperature entity
-- Temperature thresholds
-- Actions at each threshold
+| Blueprint | Use Case |
+|-----------|----------|
+| [Space Heater](./space-heater.md) | Room temperature control with miner as heat source |
+| [HVAC Integration](./hvac.md) | Whole-home thermostat integration |
+| [Time-of-Use](./time-of-use.md) | Optimize mining around electricity rates |
 
-### Room Thermostat Control
-
-Maintain room temperature using a temperature sensor (Kit 2 style).
-
-**Inputs:**
-- Miner entity
-- Temperature sensor entity
-- Target temperature
-- Hysteresis (temperature band)
-
-### Scheduled Operation
-
-Run on a weekly schedule with different modes for different times.
-
-**Inputs:**
-- Miner entity
-- Schedule definition
-- Mode for each time period
-
-## GitHub Repository
-
-All blueprints are available on GitHub:
-
-**[github.com/exergyheat](https://github.com/exergyheat)**
+See all Exergy blueprints: **[github.com/exergyheat](https://github.com/exergyheat)**
 
 ## Installing Blueprints
 
-### Method 1: Import URL
+Two methods to install any blueprint:
 
+**Import URL (easiest)**
 1. Go to **Settings → Automations & Scenes → Blueprints**
-2. Click **Import Blueprint**
-3. Paste the GitHub raw URL of the blueprint YAML
-4. Click **Preview Blueprint**
-5. Click **Import Blueprint**
+2. Click **Import Blueprint** and paste the GitHub URL
 
-### Method 2: Manual YAML
-
-1. Download the blueprint YAML file
-2. Place it in `/config/blueprints/automation/exergy/`
+**Manual YAML**
+1. Download the blueprint file
+2. Place in `/config/blueprints/automation/exergy/`
 3. Restart Home Assistant
-4. Blueprint appears in the list
 
-## Creating Automations from Blueprints
+Each blueprint's dedicated page has detailed installation and configuration steps.
 
-1. Go to **Settings → Automations & Scenes**
-2. Click **Create Automation**
-3. Select **Use a Blueprint**
-4. Choose the Exergy blueprint
-5. Fill in your entity IDs and settings
-6. Save
-
-## Customizing Blueprints
-
-Blueprints provide a starting point. After creating an automation:
-
-- Edit conditions to add exceptions
-- Add additional actions
-- Modify triggers
-- Combine with other automations
-
-## Building Your Own
+## Building Your Own Automations
 
 Don't see what you need? Build custom automations:
 
-### Visual Editor
+**Visual Editor** - Home Assistant's built-in editor walks you through triggers, conditions, and actions without code.
 
-Home Assistant's automation editor is powerful:
-- Triggers: When something happens
-- Conditions: Only if criteria are met
-- Actions: What to do
+**YAML** - Write automations directly for more control and easier version management.
 
-### YAML
+**Node-RED** - Visual flow-based programming for complex logic. Install via the Node-RED add-on.
 
-For more control, write automations in YAML:
+Home Assistant's automation system is powerful. Start with our blueprints, then customize or build your own as you learn.
 
-```yaml
-automation:
-  - alias: "Example automation"
-    trigger:
-      - platform: state
-        entity_id: sensor.something
-    condition:
-      - condition: numeric_state
-        entity_id: sensor.something_else
-        above: 50
-    action:
-      - service: switch.turn_on
-        target:
-          entity_id: switch.miner
-```
+## Contributing Blueprints
 
-### Node-RED
+Created a useful automation for hashrate heating? Share it with the community:
 
-For complex logic, consider Node-RED:
-- Visual flow-based programming
-- Powerful logic capabilities
-- HA integration via Node-RED Companion
+- **[Guides Forum](https://support.exergyheat.com/c/guides/6)** - Post your automation for discussion
+- **[GitHub](https://github.com/exergyheat)** - Submit a PR to add your blueprint to the official collection
 
-## Sharing Blueprints
+## Learn More
 
-Created a useful blueprint? Share it:
-
-- **[Guides Forum](https://support.exergyheat.com/c/guides/6)** - Post for community
-- **[GitHub](https://github.com/exergyheat)** - Submit PR for official inclusion
+- **[Home Assistant Automation Docs](https://www.home-assistant.io/docs/automation/)** - Complete automation reference
+- **[Home Assistant Blueprint Docs](https://www.home-assistant.io/docs/automation/using_blueprints/)** - Blueprint usage and creation
+- **[Exergy Community Forum](https://support.exergyheat.com/)** - Get help and share ideas
