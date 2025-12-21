@@ -10,6 +10,7 @@ This repository contains the source files for [docs.exergyheat.com](https://docs
 - **Integration Docs** — Custom smart home applications for Canaan Avalon miners, Ocean mining pool, Datum Server and more
 - **Automation Blueprints** — Pre-built thermostat control, HVAC integration, time-of-use scheduling and more
 - **Dashboard Templates** — Copy and paste dashboards to monitor and control heat and sats from home miners
+- **Calculators** — Interactive tools to evaluate hashrate heating economics and compare costs against traditional fuels
 
 ## Prerequisites
 
@@ -60,10 +61,11 @@ Output is generated in the `book/` directory.
 │   ├── SUMMARY.md     # Navigation structure
 │   ├── introduction.md
 │   ├── diy/           # DIY guides
-│   │   ├── brains/    # Home Assistant setup
+│   │   ├── brains/        # Home Assistant setup
 │   │   ├── integrations/  # Miner integrations
 │   │   ├── blueprints/    # Automation templates
 │   │   └── dashboards/    # Dashboard templates
+│   ├── calculators/   # Calculator documentation
 │   └── reference/     # Reference docs
 └── theme/             # Custom styling
 ```
@@ -93,5 +95,6 @@ See our Home Assistant Integrations Index repository for a complete list.
 
 - **Company Website**: [exergyheat.com](https://exergyheat.com)
 - **Documentation**: [docs.exergyheat.com](https://docs.exergyheat.com)
+- **Calculators**: [calc.exergyheat.com](https://calc.exergyheat.com)
 - **Community & Support Forum**: [support.exergyheat.com](https://support.exergyheat.com)
 - **Office Demo Site Interface**: [demo.exergyheat.com](https://demo.exergyheat.com)
